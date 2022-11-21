@@ -1,0 +1,276 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: #282c34; */
+}
+
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0 5px;
+}
+
+button.btn {
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+button.btn2 {
+  padding-left: 15px;
+  padding-right: 15px;
+  
+}
+
+/* previous, next buttons */
+.pn {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px;
+  align-items: center;
+  font-size: 20px;
+  margin: 50px;
+  width: 700px;
+  float: left;
+  border-radius: 2em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35)
+}
+
+/* .card-header {
+  align-items: center;
+} */
+
+.singleTodo {
+  border-radius: 50px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  display: flex;
+  width: 450px;
+  align-items: center;
+}
+/* /////////////////////////////////////////////////////////// */
+
+#light {
+  background-color: #d1c8c8e0;
+}
+
+#light .card {
+  background-color: rgba(206, 200, 190, 0.808);
+}
+
+#light .card-header {
+  color: rgb(116, 116, 116);
+}
+
+#light .btn {
+  color: rgb(71, 71, 71);
+}
+
+/* pagination style */
+#light .aStyle {
+  color: #555;
+}
+#light .aStyle:hover {
+  color: rgb(179, 178, 178)
+}
+
+#light input {
+  background-color: rgba(255, 255, 255, 0.808);
+  color: rgb(71, 71, 71);
+}
+
+#light button:hover {
+  background-color: #bbb;
+}
+
+#light .btn {
+    background-color: rgba(179, 173, 165, 0.664);}
+
+#light .btn:hover {
+  background-color: rgba(240, 235, 223, 0.808);
+}
+
+#light .btn2 {
+background-color: rgba(230, 226, 219, 0.808);
+}
+
+#light .btn2:hover {
+  background-color: rgba(255, 255, 255, 0.808);
+}
+
+#light .singleTodo {
+  /* background-color: rgba(187, 183, 175, 0.808); */
+    background-color: rgba(179, 173, 165, 0.664);
+}
+
+#light .todoText {
+  color:rgb(71, 71, 71);
+}
+
+#light .switch label {
+  color: rgb(66, 66, 66);
+}
+
+#light .dropdown {
+  background-color: rgba(168, 162, 154, 0.664);
+  color: rgb(71, 71, 71);
+}
+/* /////////////////////////////////////////////////////////// */
+
+
+#dark {
+  background-color: #282c34ea;
+}
+
+#dark .card {
+  background-color: #282c34;
+}
+
+#dark .card-header {
+  color: rgb(180, 180, 180);
+}
+
+/* pagination styles */
+#dark .aStyle {
+  color: rgb(153, 153, 153);
+}
+#dark .aStyle:hover {
+  color: rgb(179, 178, 178)
+}
+
+#dark input {
+  background-color: #3c4049a6;
+    color: rgb(168, 168, 168);
+}
+
+#dark button:hover {
+  background-color: #bbb;
+}
+
+#dark .btn {
+    background-color: #44474eea;
+    color: rgb(185, 184, 184);
+  }
+  
+#dark .btn:hover {
+    background-color: #5c6069e8;
+  }
+
+  #dark .btn2 {
+    background-color: #282c34a6;
+    color: rgba(168, 168, 168, 0.986);
+}
+
+#dark .btn2:hover {
+  background-color: rgba(105, 105, 105, 0.692);
+}
+
+#dark .singleTodo {
+  background-color: #44474ed7;
+}
+
+#dark .todoText {
+  color: rgb(168, 168, 168);
+}
+
+#dark .switch label {
+color: rgb(180, 180, 180);
+}
+
+#dark .dropdown{
+  background-color: #44474ed7;
+  color: rgb(189, 189, 189);
+}
+/* /////////////////////////////////////////////////////////// */
+
+.switch {
+  display: flex;
+margin: 10px
+}
+
+.switch label {
+  margin-right: 15px;
+  font-size: 19px;
+}
+
+.navStyle {
+  position: "relative";
+  bottom: "0";
+  padding-bottom: 40px;
+  margin-right: 15px
+}
+
+.aStyle {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  border-radius: 20px;
+  width: 70%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.todoform {
+  display: flex;
+  justify-content: space-around;
+  width: 450px;
+  margin-left: 50px;
+}
+
+.allTodos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todoText {
+  flex: 1;
+}
+
+.dropdown {
+    border: none;
+    font-size: 15px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px
+}
+
+option {
+  border-radius: 30px;
+  font-weight: normal;
+  display: block;
+  white-space: nowrap;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+}
+
+#ar form.todoform {
+  flex-direction: row-reverse;
+}
+
+#ar .singleTodo {
+flex-direction: row-reverse;
+}
+
+#ar ul.navRow {
+  display: flex;
+  flex-direction: row-reverse;
+}
