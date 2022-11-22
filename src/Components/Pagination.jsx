@@ -34,11 +34,17 @@ const Pagination = () => {
               fontWeight: number === currentPage ? "bold" : "",
             }}
           >
-            <a className="aStyle" onClick={() => paginate(number)} href="!#">
+            <span
+              className="aStyle"
+              onClick={(e) => {
+                e.preventDefault()
+                paginate(number)
+              }}
+            >
               {/* print out arabic numbers */}
               {lang === "ar" ? number.toLocaleString("ar-EG") : number}
               &nbsp; {/* this is a space */}
-            </a>
+            </span>
           </li>
         ))}
         <button

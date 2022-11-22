@@ -3,34 +3,65 @@ import {createContext, useState} from "react"
 const TodosContext = createContext()
 
 export const TodosProvider = ({children}) => {
-  const [todos, setTodos] = useState([
-    {id: 1, todo: "Todo 1", completed: true},
-    {id: 2, todo: "Todo 2", completed: false},
-    {id: 3, todo: "Todo 3", completed: true},
-    {id: 4, todo: "Todo 4", completed: false},
-    {id: 5, todo: "Todo 5", completed: true},
-    {id: 6, todo: "Todo 6", completed: false},
-    {id: 7, todo: "Todo 7", completed: true},
-    {id: 8, todo: "Todo 8", completed: false},
-    {id: 9, todo: "Todo 9", completed: true},
-    {id: 10, todo: "Todo 10", completed: false},
-    {id: 11, todo: "Todo 11", completed: true},
-    {id: 12, todo: "Todo 12", completed: false},
-    {id: 13, todo: "Todo 13", completed: true},
-    {id: 14, todo: "Todo 14", completed: false},
-    {id: 15, todo: "Todo 15", completed: true},
-    {id: 16, todo: "Todo 16", completed: false},
-    {id: 17, todo: "Todo 17", completed: true},
-    {id: 18, todo: "Todo 18", completed: false},
-    {id: 19, todo: "Todo 19", completed: true},
-    {id: 20, todo: "Todo 20", completed: false},
-    {id: 21, todo: "Todo 21", completed: true},
-    {id: 22, todo: "Todo 22", completed: false},
-    {id: 23, todo: "Todo 23", completed: true},
-    {id: 24, todo: "Todo 24", completed: false},
-    {id: 25, todo: "Todo 25", completed: true},
+  // eslint-disable-next-line
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      name: "John Doe",
+      pin: 1234,
+      todos: [
+        {id: 1, todo: "Todo 1", completed: true},
+        {id: 2, todo: "Todo 2", completed: false},
+        {id: 3, todo: "Todo 3", completed: true},
+        {id: 4, todo: "Todo 4", completed: false},
+        {id: 5, todo: "Todo 5", completed: true},
+        {id: 6, todo: "Todo 6", completed: false},
+        {id: 7, todo: "Todo 7", completed: true},
+        {id: 8, todo: "Todo 8", completed: false},
+        {id: 9, todo: "Todo 9", completed: true},
+        {id: 10, todo: "Todo 10", completed: false},
+      ],
+    },
+    {
+      id: 2,
+      name: "Jenny Walberg",
+      pin: 1234,
+      todos: [
+        {id: 1, todo: "Todo 1", completed: true},
+        {id: 2, todo: "Todo 2", completed: false},
+        {id: 3, todo: "Todo 3", completed: true},
+        {id: 4, todo: "Todo 4", completed: false},
+        {id: 5, todo: "Todo 5", completed: true},
+        {id: 6, todo: "Todo 6", completed: false},
+        {id: 7, todo: "Todo 7", completed: true},
+        {id: 8, todo: "Todo 8", completed: false},
+        {id: 9, todo: "Todo 9", completed: true},
+        {id: 10, todo: "Todo 10", completed: false},
+      ],
+    },
+    {
+      id: 3,
+      name: "Billy Cage",
+      pin: 1234,
+      todos: [
+        {id: 1, todo: "Todo 1", completed: true},
+        {id: 2, todo: "Todo 2", completed: false},
+        {id: 3, todo: "Todo 3", completed: true},
+        {id: 4, todo: "Todo 4", completed: false},
+        {id: 5, todo: "Todo 5", completed: true},
+        {id: 6, todo: "Todo 6", completed: false},
+        {id: 7, todo: "Todo 7", completed: true},
+        {id: 8, todo: "Todo 8", completed: false},
+        {id: 9, todo: "Todo 9", completed: true},
+        {id: 10, todo: "Todo 10", completed: false},
+      ],
+    },
   ])
+
+  // set todos for the user
+  const [todos, setTodos] = useState([])
   const [loading, setLoading] = useState(false) // this is the state for the loading spinner
+  const [loggedIn, setLoggedIn] = useState(false) // this is the state for the login page
   const [todo, setTodo] = useState("") // this is the state for the input field
   const [editId, setEditId] = useState(0) // this is the state for the edit button
 
@@ -40,6 +71,35 @@ export const TodosProvider = ({children}) => {
   const indexOfLastPost = currentPage * postsPerPage // variable to get to the last todo
   const indexOfFirstPost = indexOfLastPost - postsPerPage // variable to get to the first todo in the page
   const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
+
+  const searchName = (id) => {
+    id = parseInt(id)
+    const user = users.find((user) => user.id === id)
+    if (user) {
+      return user.name
+    }
+  }
+
+  // fucntion to search for the user using his id
+  // fixed is: id, we are searching for user that has this specific id
+  const searchUser = (id) => {
+    id = parseInt(id)
+    const user = users.find((user) => user.id === id)
+    if (user) {
+      setTodos(user.todos)
+    }
+  }
+
+  // login function
+  const login = (id, pin) => {
+    id = parseInt(id)
+    pin = parseInt(pin)
+    const user = users.find((user) => user.id === id && user.pin === pin)
+    if (user) {
+      setLoggedIn(true)
+      searchUser(id)
+    }
+  }
 
   // Add todos to the list
   const handleSubmit = (e) => {
@@ -100,11 +160,17 @@ export const TodosProvider = ({children}) => {
         setCurrentPage,
         postsPerPage,
         currentPosts,
+        users,
+        loggedIn,
+        setLoggedIn,
         // functions
         handleSubmit,
         handleDelete,
         handleEdit,
         paginate,
+        searchUser,
+        searchName,
+        login,
       }}
     >
       {children}
