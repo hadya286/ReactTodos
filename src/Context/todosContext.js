@@ -60,7 +60,6 @@ export const TodosProvider = ({children}) => {
 
   // set todos for the user
   const [todos, setTodos] = useState([])
-  const [loading, setLoading] = useState(false) // this is the state for the loading spinner
   const [loggedIn, setLoggedIn] = useState(false) // this is the state for the login page
   const [todo, setTodo] = useState("") // this is the state for the input field
   const [editId, setEditId] = useState(0) // this is the state for the edit button
@@ -80,7 +79,7 @@ export const TodosProvider = ({children}) => {
     }
   }
 
-  // fucntion to search for the user using his id
+  // fucntion to search for the user using his id and retrieve his todos respectively
   // fixed is: id, we are searching for user that has this specific id
   const searchUser = (id) => {
     id = parseInt(id)
@@ -97,7 +96,7 @@ export const TodosProvider = ({children}) => {
     const user = users.find((user) => user.id === id && user.pin === pin)
     if (user) {
       setLoggedIn(true)
-      searchUser(id)
+      searchUser(id) // retrieve user's todo list
     }
   }
 
@@ -113,18 +112,22 @@ export const TodosProvider = ({children}) => {
             ? (t = {id: t.id, todo}) // we are replacing the todo with the new todo
             : {id: t.id, todo: t.todo} // we are keeping the old todo by cloning them
       )
-      setTodos(updatedTodos) // setting our updated 'todos' list to the state
+      setTodos(updatedTodos) // setting our 'updatedTodos' list to the state
       // resesting the input field and the editId
       setEditId(0)
       setTodo("")
       return
     }
 
-    // prevent from adding empty 'todo's and adding the 'todo' to the list
+    // prevent from adding empty 'todo's, and add the 'todo' to the list
     if (todo !== "") {
       // we are adding the 'todo' to the list by putting it in an object and spreading all the old todos using '...todos'
       setTodos([{id: `${todo}-${Date.now()}`, todo}, ...todos])
       setTodo("") // resetting the input field
+      //date.now(): to make unique id,
+      // item1-1669192232407
+      // item1-1669192241445
+      // console.log(`${todo}-${Date.now()}`)
     }
   }
 
@@ -132,6 +135,10 @@ export const TodosProvider = ({children}) => {
   const handleDelete = (id) => {
     const delTodo = todos.filter((to) => to.id !== id)
     setTodos([...delTodo])
+    // filter: function applied on array 'todos', when condition (id != fixed id) is met, filter what we wanna delete
+    // we use != id to pass the todos that we wanna keep,
+    // and to catch the id=id
+    // filter puts the opposite inside of the condition
   }
 
   // Edit 'todos' from the list
@@ -141,7 +148,7 @@ export const TodosProvider = ({children}) => {
     setEditId(id)
   }
 
-  //
+  // pagination numbers
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
@@ -150,8 +157,6 @@ export const TodosProvider = ({children}) => {
         // states
         todos,
         setTodos,
-        loading,
-        setLoading,
         todo,
         setTodo,
         editId,

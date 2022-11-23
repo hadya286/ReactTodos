@@ -20,7 +20,7 @@ const Pagination = () => {
           onClick={() => {
             const prevPage = currentPage - 1
             if (prevPage > 0) {
-              paginate(prevPage)
+              paginate(prevPage) // setting prevPage to setCurrentPage
             }
           }}
         >
@@ -52,7 +52,7 @@ const Pagination = () => {
           onClick={() => {
             const nextPage = currentPage + 1
             if (nextPage <= pageNumbers.length) {
-              paginate(nextPage)
+              paginate(nextPage) // setting nextPage to setCurrentPage
             }
           }}
         >

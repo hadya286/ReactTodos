@@ -10,12 +10,7 @@ import ThemeContext from "../Context/themeContext"
 
 const Posts = () => {
   const {lang} = useContext(ThemeContext)
-  const {loading, handleDelete, handleEdit, currentPosts} =
-    useContext(TodosContext)
-
-  if (loading) {
-    return <h2>Loading..</h2>
-  }
+  const {handleDelete, handleEdit, currentPosts} = useContext(TodosContext)
 
   return (
     <ul>

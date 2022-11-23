@@ -1,8 +1,10 @@
 import {useContext, useState} from "react"
-import TodosContext from "../Context/todosContext"
 import {useParams} from "react-router-dom"
+import TodosContext from "../Context/todosContext"
+import ThemeContext from "../Context/themeContext"
 
 function UserPin() {
+  const {lang} = useContext(ThemeContext)
   const {login} = useContext(TodosContext)
   const {id} = useParams()
   const [pinEntered, setPinEntered] = useState("")
@@ -20,14 +22,20 @@ function UserPin() {
       <div className="modal-background"></div>
       <div className="modal-content">
         <input
+          className="modalInput"
+          id={lang}
           type="password"
           style={{margin: "10px"}}
-          placeholder="Please enter PIN"
+          placeholder={
+            lang === "en"
+              ? "Please enter PIN"
+              : "الرجاء ادخال رقم التعريف الشخصي"
+          }
           value={pinEntered}
           onChange={handleChange}
         />
         <button className="btn" onClick={handleSubmit}>
-          Log in
+          {lang === "en" ? "Log in" : "تسجيل الدخول"}
         </button>
       </div>
     </>

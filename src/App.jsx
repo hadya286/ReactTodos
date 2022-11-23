@@ -13,7 +13,7 @@ function App() {
       <div className="App" id={theme}>
         <Home />
 
-        {/* replaces switch */}
+        {/* routes replaces switch */}
         <Routes>
           <Route path="/users/:id" element={<Card />} />
         </Routes>

@@ -1,7 +1,8 @@
 import ReactSwitch from "react-switch"
-import ThemeContext from "../Context/themeContext"
 import {useContext} from "react"
+import ThemeContext from "../Context/themeContext"
 
+// darkMode/lightMode switch & ar/en dropdown
 function ThemeSwitch() {
   const {theme, toggleTheme, setLang} = useContext(ThemeContext)
   return (
@@ -15,7 +16,6 @@ function ThemeSwitch() {
         <select
           id="lang"
           className="dropdown"
-          // target=select
           onChange={(e) => {
             setLang(e.target.value)
           }}
