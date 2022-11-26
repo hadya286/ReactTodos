@@ -1,62 +1,11 @@
-import {createContext, useState} from "react"
+import axios from "axios"
+import { createContext, useState } from "react"
 
 const TodosContext = createContext()
 
 export const TodosProvider = ({children}) => {
   // eslint-disable-next-line
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      pin: 1234,
-      todos: [
-        {id: 1, todo: "Todo 1", completed: true},
-        {id: 2, todo: "Todo 2", completed: false},
-        {id: 3, todo: "Todo 3", completed: true},
-        {id: 4, todo: "Todo 4", completed: false},
-        {id: 5, todo: "Todo 5", completed: true},
-        {id: 6, todo: "Todo 6", completed: false},
-        {id: 7, todo: "Todo 7", completed: true},
-        {id: 8, todo: "Todo 8", completed: false},
-        {id: 9, todo: "Todo 9", completed: true},
-        {id: 10, todo: "Todo 10", completed: false},
-      ],
-    },
-    {
-      id: 2,
-      name: "Jenny Walberg",
-      pin: 1234,
-      todos: [
-        {id: 1, todo: "Todo 1", completed: true},
-        {id: 2, todo: "Todo 2", completed: false},
-        {id: 3, todo: "Todo 3", completed: true},
-        {id: 4, todo: "Todo 4", completed: false},
-        {id: 5, todo: "Todo 5", completed: true},
-        {id: 6, todo: "Todo 6", completed: false},
-        {id: 7, todo: "Todo 7", completed: true},
-        {id: 8, todo: "Todo 8", completed: false},
-        {id: 9, todo: "Todo 9", completed: true},
-        {id: 10, todo: "Todo 10", completed: false},
-      ],
-    },
-    {
-      id: 3,
-      name: "Billy Cage",
-      pin: 1234,
-      todos: [
-        {id: 1, todo: "Todo 1", completed: true},
-        {id: 2, todo: "Todo 2", completed: false},
-        {id: 3, todo: "Todo 3", completed: true},
-        {id: 4, todo: "Todo 4", completed: false},
-        {id: 5, todo: "Todo 5", completed: true},
-        {id: 6, todo: "Todo 6", completed: false},
-        {id: 7, todo: "Todo 7", completed: true},
-        {id: 8, todo: "Todo 8", completed: false},
-        {id: 9, todo: "Todo 9", completed: true},
-        {id: 10, todo: "Todo 10", completed: false},
-      ],
-    },
-  ])
+  const [users, setUsers] = useState([])
 
   // set todos for the user
   const [todos, setTodos] = useState([])
@@ -70,6 +19,12 @@ export const TodosProvider = ({children}) => {
   const indexOfLastPost = currentPage * postsPerPage // variable to get to the last todo
   const indexOfFirstPost = indexOfLastPost - postsPerPage // variable to get to the first todo in the page
   const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
+
+  // function to fetch the users from json server at localhost:3001/users using axios
+  const fetchUsers = async () => {
+    const response = await axios.get("http://localhost:3001/users")
+    setUsers(response.data)
+  }
 
   const searchName = (id) => {
     id = parseInt(id)
@@ -176,6 +131,7 @@ export const TodosProvider = ({children}) => {
         searchUser,
         searchName,
         login,
+        fetchUsers,
       }}
     >
       {children}

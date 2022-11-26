@@ -1,12 +1,20 @@
-import React, {useContext} from "react"
-import {Card} from "./Components/Card"
+import React, { useContext, useEffect } from "react"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import "./App.css"
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import Home from "./Pages/Home"
+import { Card } from "./Components/Card"
 import ThemeContext from "./Context/themeContext"
+import TodosContext from "./Context/todosContext"
+import Home from "./Pages/Home"
 
 function App() {
   const {theme} = useContext(ThemeContext)
+  const {fetchUsers} = useContext(TodosContext)
+
+useEffect(() => {
+  fetchUsers()
+  // eslint-disable-next-line
+}, [])
+
 
   return (
     <Router>
