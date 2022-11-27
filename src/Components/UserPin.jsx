@@ -1,11 +1,12 @@
 import {useContext, useState} from "react"
 import {useParams} from "react-router-dom"
+import {Link} from "react-router-dom"
 import TodosContext from "../Context/todosContext"
 import ThemeContext from "../Context/themeContext"
 
 function UserPin() {
   const {lang} = useContext(ThemeContext)
-  const {login} = useContext(TodosContext)
+  const {login, searchName} = useContext(TodosContext)
   const {id} = useParams()
   const [pinEntered, setPinEntered] = useState("")
 
@@ -21,6 +22,11 @@ function UserPin() {
     <>
       <div className="modal-background"></div>
       <div className="modal-content">
+        <h2 className="card-header">
+          {lang === "en"
+            ? `Welcome ${searchName(id)}!`
+            : `!${searchName(id)} أهلا`}
+        </h2>
         <input
           className="modalInput"
           id={lang}
@@ -38,6 +44,9 @@ function UserPin() {
           {lang === "en" ? "Log in" : "تسجيل الدخول"}
         </button>
       </div>
+      <Link id="cancelLogin" to="/">
+        <button className="btn">x</button>
+      </Link>
     </>
   )
 }

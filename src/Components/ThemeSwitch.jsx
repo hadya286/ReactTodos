@@ -1,15 +1,20 @@
 import ReactSwitch from "react-switch"
 import {useContext} from "react"
 import ThemeContext from "../Context/themeContext"
+import {useParams} from "react-router-dom"
 
 // darkMode/lightMode switch & ar/en dropdown
 function ThemeSwitch() {
-  const {theme, toggleTheme, setLang} = useContext(ThemeContext)
+  const {theme, toggleTheme, toggleLang} = useContext(ThemeContext)
+  const {id} = useParams()
   return (
     <div>
       <div className="switch">
         <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-        <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+        <ReactSwitch
+          onChange={() => toggleTheme(id)}
+          checked={theme === "dark"}
+        />
       </div>
 
       <div>
@@ -17,7 +22,7 @@ function ThemeSwitch() {
           id="lang"
           className="dropdown"
           onChange={(e) => {
-            setLang(e.target.value)
+            toggleLang(e.target.value, id)
           }}
         >
           <option id="en" value="en">

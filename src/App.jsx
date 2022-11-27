@@ -1,25 +1,24 @@
-import React, { useContext, useEffect } from "react"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import React, {useContext, useEffect} from "react"
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import "./App.css"
-import { Card } from "./Components/Card"
+import {Card} from "./Components/Card"
 import ThemeContext from "./Context/themeContext"
 import TodosContext from "./Context/todosContext"
-import Home from "./Pages/Home"
+import UserTab from "./Components/UserTab"
 
 function App() {
   const {theme} = useContext(ThemeContext)
-  const {fetchUsers} = useContext(TodosContext)
+  const {fetchUsers, todos} = useContext(TodosContext)
 
-useEffect(() => {
-  fetchUsers()
-  // eslint-disable-next-line
-}, [])
-
+  useEffect(() => {
+    fetchUsers()
+    // eslint-disable-next-line
+  }, [todos])
 
   return (
     <Router>
       <div className="App" id={theme}>
-        <Home />
+        <UserTab />
 
         {/* routes replaces switch */}
         <Routes>

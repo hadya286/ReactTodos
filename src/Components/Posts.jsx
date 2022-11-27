@@ -1,6 +1,7 @@
 import React, {useContext} from "react"
 import TodosContext from "../Context/todosContext"
 import ThemeContext from "../Context/themeContext"
+import {useParams} from "react-router-dom"
 
 // we imported-
 
@@ -11,6 +12,7 @@ import ThemeContext from "../Context/themeContext"
 const Posts = () => {
   const {lang} = useContext(ThemeContext)
   const {handleDelete, handleEdit, currentPosts} = useContext(TodosContext)
+  const {id} = useParams()
 
   return (
     <ul>
@@ -20,7 +22,7 @@ const Posts = () => {
           <button className="btn2" onClick={() => handleEdit(t.id)}>
             {lang === "ar" ? "تعديل" : "Edit"}
           </button>
-          <button className="btn2" onClick={() => handleDelete(t.id)}>
+          <button className="btn2" onClick={() => handleDelete(t.id, id)}>
             {lang === "ar" ? "إزالة" : "Remove"}
           </button>
         </li>

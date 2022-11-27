@@ -11,8 +11,9 @@ import ThemeSwitch from "./ThemeSwitch"
 import UserPin from "./UserPin"
 
 export const Card = () => {
-  const {lang} = useContext(ThemeContext)
-  const {loggedIn, setLoggedIn, searchName} = useContext(TodosContext)
+  const {lang, fetchTheme} = useContext(ThemeContext)
+  const {loggedIn, setLoggedIn, searchName, getCurrentUser} =
+    useContext(TodosContext)
 
   // The useParams hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>
   // use params
@@ -22,6 +23,13 @@ export const Card = () => {
   // upon change of 'id' state, set logged in to false and ask for password again
   useEffect(() => {
     setLoggedIn(false)
+    // eslint-disable-next-line
+  }, [id])
+
+  useEffect(() => {
+    console.log(id)
+    fetchTheme(getCurrentUser(id))
+
     // eslint-disable-next-line
   }, [id])
 

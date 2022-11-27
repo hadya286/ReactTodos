@@ -291,8 +291,9 @@ option {
 } */
 
 .modal-content{
-  height:60px;
+  height:auto;
   width: 650px;
+  padding-bottom:25px;
   position: absolute;
   background-color: inherit;
   top:50%;
@@ -329,4 +330,11 @@ option {
 
 #ar .userList {
   flex-direction: row-reverse;
+}
+
+#cancelLogin {
+z-index: 11;
+position: fixed;
+top: 10px;
+right: 10px;
 }

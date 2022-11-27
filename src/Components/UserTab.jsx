@@ -1,9 +1,11 @@
 import {Link} from "react-router-dom"
 import {useContext} from "react"
 import ThemeContext from "../Context/themeContext"
+import TodosContext from "../Context/todosContext"
 
-export const Home = () => {
+export const UserTab = () => {
   const {lang} = useContext(ThemeContext)
+  const {users} = useContext(TodosContext)
   return (
     // add negative margin to
     <div className="card" id={lang} style={{marginBottom: "-20px"}}>
@@ -13,7 +15,13 @@ export const Home = () => {
       {/* three links react router links that leeads to 3 users */}
 
       <div className="userList">
-        <Link className="userLink" to="/users/1">
+        {users.map((user) => (
+          <Link className="userLink" to={`/users/${user.id}`}>
+            <button className="btn">{`${user.name}`}</button>
+          </Link>
+        ))}
+
+        {/* <Link className="userLink" to="/users/1">
           <button className="btn">
             {lang === "en" ? "User 1" : "المستخدم ١"}
           </button>
@@ -27,10 +35,10 @@ export const Home = () => {
           <button className="btn">
             {lang === "en" ? "User 3" : "المستخدم ٣	"}
           </button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   )
 }
 
-export default Home
+export default UserTab

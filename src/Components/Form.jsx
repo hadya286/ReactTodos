@@ -1,13 +1,21 @@
 import {useContext} from "react"
 import TodosContext from "../Context/todosContext"
 import ThemeContext from "../Context/themeContext"
+import {useParams} from "react-router-dom"
 
 const Form = () => {
   const {todo, setTodo, handleSubmit, editId} = useContext(TodosContext)
   const {lang} = useContext(ThemeContext)
+  const {id} = useParams()
 
   return (
-    <form className="todoform" onSubmit={handleSubmit}>
+    <form
+      className="todoform"
+      onSubmit={(e) => {
+        e.preventDefault()
+        handleSubmit(id)
+      }}
+    >
       <input
         className="titleInput"
         type="text"
