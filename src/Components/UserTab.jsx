@@ -12,15 +12,15 @@ export const UserTab = () => {
       <h1 className="card-header">
         {lang === "en" ? "Users List" : "قائمة المستخدمين"}
       </h1>
-      {/* three links react router links that leeads to 3 users */}
 
       <div className="userList">
         {users.map((user) => (
-          <Link className="userLink" to={`/users/${user.id}`}>
+          <Link key={user.id} className="userLink" to={`/users/${user.id}`}>
             <button className="btn">{`${user.name}`}</button>
           </Link>
         ))}
 
+        {/* three links react router links that leads to 3 users */}
         {/* <Link className="userLink" to="/users/1">
           <button className="btn">
             {lang === "en" ? "User 1" : "المستخدم ١"}

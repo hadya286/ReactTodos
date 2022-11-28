@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react"
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import "./App.css"
 import {Card} from "./Components/Card"
+import About from "./Pages/About"
 import ThemeContext from "./Context/themeContext"
 import TodosContext from "./Context/todosContext"
 import UserTab from "./Components/UserTab"
@@ -18,11 +19,13 @@ function App() {
   return (
     <Router>
       <div className="App" id={theme}>
-        <UserTab />
+        {/* <UserTab /> */}
 
         {/* routes replaces switch */}
         <Routes>
+          <Route path="/" element={<UserTab />} />
           <Route path="/users/:id" element={<Card />} />
+          <Route path="/users/about/:id" element={<About />} />
         </Routes>
       </div>
     </Router>

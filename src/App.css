@@ -27,7 +27,6 @@ button.btn {
 button.btn2 {
   padding-left: 15px;
   padding-right: 15px;
-  
 }
 
 /* previous, next buttons */
@@ -47,7 +46,9 @@ button.btn2 {
   width: 700px;
   float: left;
   border-radius: 2em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35)
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35);
+  /* //if not loggedin is true => blur
+  //else "" */
 }
 
 .singleTodo {
@@ -81,7 +82,7 @@ button.btn2 {
   color: #555;
 }
 #light .aStyle:hover {
-  color: rgb(179, 178, 178)
+  color: rgb(179, 178, 178);
 }
 
 #light input {
@@ -94,14 +95,15 @@ button.btn2 {
 }
 
 #light .btn {
-    background-color: rgba(179, 173, 165, 0.664);}
+  background-color: rgba(179, 173, 165, 0.664);
+}
 
 #light .btn:hover {
   background-color: rgba(240, 235, 223, 0.808);
 }
 
 #light .btn2 {
-background-color: rgba(230, 226, 219, 0.808);
+  background-color: rgba(230, 226, 219, 0.808);
 }
 
 #light .btn2:hover {
@@ -110,11 +112,11 @@ background-color: rgba(230, 226, 219, 0.808);
 
 #light .singleTodo {
   /* background-color: rgba(187, 183, 175, 0.808); */
-    background-color: rgba(179, 173, 165, 0.664);
+  background-color: rgba(179, 173, 165, 0.664);
 }
 
 #light .todoText {
-  color:rgb(71, 71, 71);
+  color: rgb(71, 71, 71);
 }
 
 #light .switch label {
@@ -126,7 +128,6 @@ background-color: rgba(230, 226, 219, 0.808);
   color: rgb(71, 71, 71);
 }
 /* /////////////////////////////////////////////////////////// */
-
 
 #dark {
   background-color: #282c34ea;
@@ -145,12 +146,12 @@ background-color: rgba(230, 226, 219, 0.808);
   color: rgb(153, 153, 153);
 }
 #dark .aStyle:hover {
-  color: rgb(179, 178, 178)
+  color: rgb(179, 178, 178);
 }
 
 #dark input {
   background-color: #3c4049a6;
-    color: rgb(168, 168, 168);
+  color: rgb(168, 168, 168);
 }
 
 #dark button:hover {
@@ -158,17 +159,17 @@ background-color: rgba(230, 226, 219, 0.808);
 }
 
 #dark .btn {
-    background-color: #44474eea;
-    color: rgb(185, 184, 184);
-  }
-  
-#dark .btn:hover {
-    background-color: #5c6069e8;
-  }
+  background-color: #44474eea;
+  color: rgb(185, 184, 184);
+}
 
-  #dark .btn2 {
-    background-color: #282c34a6;
-    color: rgba(168, 168, 168, 0.986);
+#dark .btn:hover {
+  background-color: #5c6069e8;
+}
+
+#dark .btn2 {
+  background-color: #282c34a6;
+  color: rgba(168, 168, 168, 0.986);
 }
 
 #dark .btn2:hover {
@@ -188,10 +189,10 @@ background-color: rgba(230, 226, 219, 0.808);
 }
 
 #dark .switch label {
-color: rgb(180, 180, 180);
+  color: rgb(180, 180, 180);
 }
 
-#dark .dropdown{
+#dark .dropdown {
   background-color: #44474ed7;
   color: rgb(189, 189, 189);
 }
@@ -199,6 +200,7 @@ color: rgb(180, 180, 180);
 
 .switch {
   display: flex;
+  justify-content: center;
   margin-top: -20px;
   margin-left: 10px;
   margin-right: 10px;
@@ -213,15 +215,14 @@ color: rgb(180, 180, 180);
   position: "relative";
   bottom: "0";
   padding-bottom: 40px;
-  margin-right: 15px
+  margin-right: 15px;
 }
 
 .aStyle {
   text-decoration: none;
-
 }
 
-.aStyle:hover{
+.aStyle:hover {
   cursor: pointer;
 }
 
@@ -251,16 +252,16 @@ input {
 }
 
 .dropdown {
-    border: none;
-    font-size: 15px;
-    margin: 20px;
-    cursor: pointer;
-    border-radius: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 10px;
-    padding-top: 10px
-  }
+  border: none;
+  font-size: 15px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
 option {
   border-radius: 30px;
@@ -270,7 +271,6 @@ option {
   min-height: 1.2em;
   padding: 0px 2px 1px;
 }
-
 
 #ar form.todoform {
   flex-direction: row-reverse;
@@ -285,38 +285,39 @@ option {
   flex-direction: row-reverse;
 }
 
-/* #ar .modalInput{
-  display: flex;
-  flex-direction: row-reverse;
-} */
-
-.modal-content{
-  height:auto;
+.modal-content {
+  height: auto;
   width: 650px;
-  padding-bottom:25px;
+  padding-bottom: 25px;
   position: absolute;
   background-color: inherit;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   z-index: 11;
-  transform:translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border: 1px;
   align-items: center;
   font-size: 20px;
   border-radius: 2em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 11px 75px 12px rgba(0, 0, 0, 0.35);
 }
 
+.modal-background {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+}
 
-.modal-background{
-  position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
+.blurCard {
+  z-index: 10;
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  filter: blur(10px);
+  /* backdrop-filter: blur(15px); */
 }
 
 .userLink {
@@ -325,7 +326,6 @@ option {
 
 .userList {
   display: flex;
-
 }
 
 #ar .userList {
@@ -333,8 +333,14 @@ option {
 }
 
 #cancelLogin {
-z-index: 11;
-position: fixed;
-top: 10px;
-right: 10px;
+  z-index: 11;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.pinForm {
+  display: flex;
+  width: 70%;
+  margin-bottom: 60px;
 }

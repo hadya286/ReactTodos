@@ -20,7 +20,7 @@ function UserPin() {
 
   return (
     <>
-      <div className="modal-background"></div>
+      {/* <div className="modal-background"></div> */}
       <div className="modal-content">
         <h2 className="card-header">
           {lang === "en"

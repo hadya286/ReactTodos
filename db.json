@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "John Doe",
-      "pin": 1234,
+      "pin": "",
       "preference": [
         "dark",
         "en"
@@ -62,7 +62,7 @@
     {
       "id": 2,
       "name": "Jenny Walberg",
-      "pin": 1234,
+      "pin": "123",
       "preference": [
         "light",
         "en"
@@ -123,7 +123,7 @@
     {
       "id": 3,
       "name": "Bob Cage",
-      "pin": 1234,
+      "pin": "1234",
       "preference": [
         "light",
         "ar"
