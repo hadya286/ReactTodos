@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "John Doe",
+      "name": "John",
       "pin": "",
       "preference": [
         "dark",
@@ -10,11 +10,11 @@
       ],
       "todos": [
         {
-          "id": "Todo 1-1669498022252",
+          "id": "Todo 1",
           "todo": "Todo 1"
         },
         {
-          "id": "Todo 2-1669498017261",
+          "id": "Todo 2",
           "todo": "Todo 2"
         },
         {
@@ -61,8 +61,8 @@
     },
     {
       "id": 2,
-      "name": "Jenny Walberg",
-      "pin": "123",
+      "name": "Jenny",
+      "pin": "1234",
       "preference": [
         "light",
         "en"
@@ -70,59 +70,49 @@
       "todos": [
         {
           "id": 1,
-          "todo": "Todo 1",
-          "completed": true
+          "todo": "Todo 1"
         },
         {
           "id": 2,
-          "todo": "Todo 2",
-          "completed": false
+          "todo": "Todo 2"
         },
         {
           "id": 3,
-          "todo": "Todo 3",
-          "completed": true
+          "todo": "Todo 3"
         },
         {
           "id": 4,
-          "todo": "Todo 4",
-          "completed": false
+          "todo": "Todo 4"
         },
         {
           "id": 5,
-          "todo": "Todo 5",
-          "completed": true
+          "todo": "Todo 5"
         },
         {
           "id": 6,
-          "todo": "Todo 6",
-          "completed": false
+          "todo": "Todo 6"
         },
         {
           "id": 7,
-          "todo": "Todo 7",
-          "completed": true
+          "todo": "Todo 7"
         },
         {
           "id": 8,
-          "todo": "Todo 8",
-          "completed": false
+          "todo": "Todo 8"
         },
         {
           "id": 9,
-          "todo": "Todo 9",
-          "completed": true
+          "todo": "Todo 9"
         },
         {
           "id": 10,
-          "todo": "Todo 10",
-          "completed": false
+          "todo": "Todo 10"
         }
       ]
     },
     {
       "id": 3,
-      "name": "Bob Cage",
+      "name": "Bob",
       "pin": "1234",
       "preference": [
         "light",

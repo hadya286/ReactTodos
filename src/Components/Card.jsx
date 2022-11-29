@@ -1,5 +1,5 @@
 import React from "react"
-// import FaUserAlt
+import {FaUser} from "react-icons/fa"
 import {useContext, useEffect} from "react"
 import {useParams, Link} from "react-router-dom"
 import ThemeContext from "../Context/themeContext"
@@ -39,16 +39,19 @@ export const Card = () => {
       <UserTab />
 
       <div className="card" id={lang}>
+        {/* if not loggedin => <UserPin> component is displayed */}
         {!loggedIn && <UserPin id={id} />}
-        <div className={!loggedIn && "blurCard"}>
-          {/* if not loggedin => pin component <UserPin> is displayed */}
 
+        {/* if not loggedIn => use the blurCard classname */}
+        <div className={!loggedIn && "blurCard"}>
           <h1 className="card-header">
+            <Link to={`/users/about/${id}`}>
+              <FaUser className="userIcon" />
+            </Link>
             {lang === "en"
               ? `${searchName(id)}'s To Do List`
               : `${searchName(id)} قائمة مهام`}
           </h1>
-
           {/* The form to enter the todo */}
           <Form />
 
@@ -60,10 +63,6 @@ export const Card = () => {
 
           {/* Switch for theme and language */}
           <ThemeSwitch />
-
-          <Link className="btn" to={`/users/about/${id}`}>
-            O
-          </Link>
         </div>
         {/* {!loggedIn && </div>} */}
       </div>

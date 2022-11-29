@@ -127,6 +127,22 @@ button.btn2 {
   background-color: rgba(168, 162, 154, 0.664);
   color: rgb(71, 71, 71);
 }
+
+#light .userIcon {
+  color: rgb(116, 116, 116);
+}
+
+#light .userIcon:hover {
+  color: rgba(240, 235, 223, 0.808);
+}
+
+#light .arrowIcon {
+  color: rgb(116, 116, 116);
+}
+
+#light .arrowIcon:hover {
+  color: rgba(240, 235, 223, 0.808);
+}
 /* /////////////////////////////////////////////////////////// */
 
 #dark {
@@ -195,6 +211,22 @@ button.btn2 {
 #dark .dropdown {
   background-color: #44474ed7;
   color: rgb(189, 189, 189);
+}
+
+#dark .userIcon {
+  color: rgb(180, 180, 180);
+}
+
+#dark .userIcon:hover {
+  color: #44474eea;
+}
+
+#dark .arrowIcon {
+  color: rgb(180, 180, 180);
+}
+
+#dark .arrowIcon:hover {
+  color: #5c6069e8;
 }
 /* /////////////////////////////////////////////////////////// */
 
@@ -341,6 +373,16 @@ option {
 
 .pinForm {
   display: flex;
-  width: 70%;
+  width: 71%;
   margin-bottom: 60px;
+}
+
+.userIcon {
+  padding-right: 20px;
+  block-size: 30px;
+}
+
+.arrowIcon {
+  display: flex;
+  margin-left: -180px;
 }

@@ -1,6 +1,7 @@
 import {useContext, useState} from "react"
 import ThemeContext from "../Context/themeContext"
 import {Link, useParams} from "react-router-dom"
+import {BiArrowBack} from "react-icons/bi"
 import TodosContext from "../Context/todosContext"
 import ThemeSwitch from "../Components/ThemeSwitch"
 
@@ -12,7 +13,10 @@ const About = () => {
 
   return (
     <div className="card">
-      <h2 className="card-header">
+      <h2 className="card-header" style={{display: "flex"}}>
+        <Link to={`/users/${id}`}>
+          <BiArrowBack className="arrowIcon" size={35} />
+        </Link>
         {lang === "en" ? `About ${searchName(id)}` : `${searchName(id)} عن`}
       </h2>
       <form
@@ -21,6 +25,7 @@ const About = () => {
           e.preventDefault()
           if (newPin !== "") {
             changePin(id, newPin)
+            alert("PIN changed")
             setNewPin("")
           }
         }}
@@ -56,7 +61,6 @@ const About = () => {
       <div style={{marginTop: "40px"}}>
         <ThemeSwitch />
       </div>
-      <Link to={`/users/${id}`}>back</Link>
     </div>
   )
 }
