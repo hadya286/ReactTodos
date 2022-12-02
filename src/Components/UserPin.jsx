@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom"
 import {Link} from "react-router-dom"
 import TodosContext from "../Context/todosContext"
 import ThemeContext from "../Context/themeContext"
+import {FaTimes} from "react-icons/fa"
 
 function UserPin() {
   const {lang} = useContext(ThemeContext)
@@ -16,6 +17,7 @@ function UserPin() {
   const handleSubmit = (e) => {
     e.preventDefault()
     login(id, pinEntered)
+    setPinEntered("")
   }
 
   return (
@@ -27,26 +29,33 @@ function UserPin() {
             ? `Welcome ${searchName(id)}!`
             : `!${searchName(id)} أهلا`}
         </h2>
-        <input
-          className="modalInput"
-          id={lang}
-          type="password"
-          style={{margin: "10px"}}
-          placeholder={
-            lang === "en"
-              ? "Please enter PIN"
-              : "الرجاء ادخال رقم التعريف الشخصي"
-          }
-          value={pinEntered}
-          onChange={handleChange}
-        />
-        <button className="btn" onClick={handleSubmit}>
-          {lang === "en" ? "Log in" : "تسجيل الدخول"}
-        </button>
+        <div className="modal-form">
+          <input
+            className="modalInput"
+            id={lang}
+            type="password"
+            // style={{margin: "10px", flexDirection: "row-reverse"}}
+            placeholder={
+              lang === "en"
+                ? "Please enter PIN"
+                : "الرجاء ادخال رقم التعريف الشخصي"
+            }
+            value={pinEntered}
+            onChange={handleChange}
+            dir={lang === "ar" ? "rtl" : "ltr"}
+          />
+          <Link id="cancelLogin" to="/">
+            <FaTimes />
+          </Link>
+          <button
+            className="btn"
+            onClick={handleSubmit}
+            style={{height: "40px"}}
+          >
+            {lang === "en" ? "Log in" : "تسجيل الدخول"}
+          </button>
+        </div>
       </div>
-      <Link id="cancelLogin" to="/">
-        <button className="btn">x</button>
-      </Link>
     </>
   )
 }

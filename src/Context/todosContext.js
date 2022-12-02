@@ -66,6 +66,8 @@ export const TodosProvider = ({children}) => {
     if (user) {
       setLoggedIn(true)
       searchUser(id) // retrieve user's todo list
+    } else {
+      alert("Incorrect PIN, please try again")
     }
   }
 

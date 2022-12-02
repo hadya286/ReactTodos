@@ -42,7 +42,12 @@ const About = () => {
         <button
           className="btn"
           type="submit"
-          style={{width: "30%", marginLeft: "10px"}}
+          style={{
+            width: "30%",
+            marginLeft: "10px",
+            marginRight: "10px",
+            height: "40px",
+          }}
         >
           {lang === "ar" ? "تغيير كلمة المرور" : "Change PIN"}
         </button>
