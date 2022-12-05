@@ -34,12 +34,21 @@ export const TodosProvider = ({children}) => {
     console.log(users)
   }
 
-  // fucntion to search for the user using his id
+  // fucntion to search for the userName using his id
   const searchName = (id) => {
     id = parseInt(id)
     const user = users.find((user) => user.id === id)
     if (user) {
       return user.name
+    }
+  }
+
+  // fucntion to search for the userPin using his id
+  const searchPin = (id) => {
+    id = parseInt(id)
+    const user = users.find((user) => user.id === id)
+    if (user) {
+      return user.pin
     }
   }
 
@@ -170,6 +179,7 @@ export const TodosProvider = ({children}) => {
         paginate,
         searchUser,
         searchName,
+        searchPin,
         login,
         fetchUsers,
         getCurrentUser,

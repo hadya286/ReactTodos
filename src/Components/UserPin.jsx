@@ -29,12 +29,12 @@ function UserPin() {
             ? `Welcome ${searchName(id)}!`
             : `!${searchName(id)} أهلا`}
         </h2>
+
         <div className="modal-form">
           <input
             className="modalInput"
             id={lang}
             type="password"
-            // style={{margin: "10px", flexDirection: "row-reverse"}}
             placeholder={
               lang === "en"
                 ? "Please enter PIN"
