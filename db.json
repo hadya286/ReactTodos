@@ -62,7 +62,7 @@
     {
       "id": 2,
       "name": "Jenny",
-      "pin": "111",
+      "pin": "7777",
       "preference": [
         "light",
         "en"
@@ -116,7 +116,7 @@
       "pin": "1234",
       "preference": [
         "light",
-        "ar"
+        "en"
       ],
       "todos": [
         {

@@ -10,7 +10,9 @@ function ThemeSwitch() {
   return (
     <div>
       <div className="switch">
-        <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+        <label className="switchLabel">
+          {theme === "light" ? "Light Mode" : "Dark Mode"}
+        </label>
         <ReactSwitch
           onChange={() => toggleTheme(id)}
           checked={theme === "dark"}

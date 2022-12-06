@@ -5,28 +5,37 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-color: #282c34; */
 }
 
 button {
   border: none;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 40px;
   margin: 0 5px;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  /* margin-top: 3px;
+  margin-bottom: 3px; */
 }
 
 button.btn {
   padding-left: 30px;
   padding-right: 30px;
-  border-radius: 30px;
+  padding-top: 19px;
+  padding-bottom: 19px;
   font-size: 14px;
 }
 
+.btn3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 120%;
+}
+
 button.btn2 {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 12px;
 }
 
 /* previous, next buttons */
@@ -46,7 +55,9 @@ button.btn2 {
   width: 700px;
   float: left;
   border-radius: 2em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35);
+  /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35); */
+  box-shadow: 0px 11px 35px 2px #545d6dd8;
+
   /* //if not loggedin is true => blur
   //else "" */
 }
@@ -54,7 +65,7 @@ button.btn2 {
 .singleTodo {
   border-radius: 50px;
   margin: 10px 0;
-  padding: 10px 20px;
+  padding: 12px 20px;
   display: flex;
   width: 450px;
   align-items: center;
@@ -87,6 +98,7 @@ button.btn2 {
 
 #light input {
   background-color: rgba(255, 255, 255, 0.808);
+  /* color: rgb(71, 71, 71);*/
   color: rgb(71, 71, 71);
 }
 
@@ -111,7 +123,6 @@ button.btn2 {
 }
 
 #light .singleTodo {
-  /* background-color: rgba(187, 183, 175, 0.808); */
   background-color: rgba(179, 173, 165, 0.664);
 }
 
@@ -120,7 +131,7 @@ button.btn2 {
 }
 
 #light .switch label {
-  color: rgb(66, 66, 66);
+  color: rgb(116, 116, 116);
 }
 
 #light .dropdown {
@@ -144,7 +155,15 @@ button.btn2 {
   color: rgba(240, 235, 223, 0.808);
 }
 
+#light .modal-content {
+  box-shadow: 0px 11px 75px 18px rgba(0, 0, 0, 0.35);
+}
+
 #light #cancelLogin {
+  color: rgb(116, 116, 116);
+}
+
+#light .error {
   color: rgb(116, 116, 116);
 }
 
@@ -205,6 +224,9 @@ button.btn2 {
   color: rgb(168, 168, 168);
 }
 
+#dark .switch label {
+  color: rgb(180, 180, 180);
+}
 #dark .userLink {
   color: rgb(168, 168, 168);
 }
@@ -234,12 +256,25 @@ button.btn2 {
   color: #5c6069e8;
 }
 
+#dark .modal-content {
+  box-shadow: 0px 11px 35px 2px #545d6dd8;
+}
+
 #dark #cancelLogin {
   color: rgb(180, 180, 180);
 }
 
-/* /////////////////////////////////////////////////////////// */
+#dark .error {
+  color: rgb(180, 180, 180);
+}
 
+/* /////////////////////////////////////////////////////////// */
+.error {
+  opacity: 0.8;
+  font-size: 18px;
+  margin-top: -30px;
+  padding-bottom: 20px;
+}
 .switch {
   display: flex;
   justify-content: center;
@@ -249,8 +284,11 @@ button.btn2 {
 }
 
 .switch label {
+  display: flex;
+  align-items: center;
   margin-right: 15px;
-  font-size: 19px;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 .navStyle {
@@ -270,10 +308,13 @@ button.btn2 {
 
 input {
   border: none;
-  border-radius: 20px;
-  width: 70%;
-  padding: 10px;
-  font-size: 16px;
+  border-radius: 40px;
+  width: 65%;
+  font-size: 14px;
+  height: 30px;
+  padding: 12px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .todoform {
@@ -281,6 +322,10 @@ input {
   justify-content: space-around;
   width: 450px;
   margin-left: 50px;
+}
+
+.titleInput {
+  margin-right: 5px;
 }
 
 .allTodos {
@@ -295,14 +340,14 @@ input {
 
 .dropdown {
   border: none;
-  font-size: 15px;
-  margin: 20px;
+  font-size: 14px;
+  margin: 15px;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 40px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 option {
@@ -333,8 +378,11 @@ option {
 
 .modal-content {
   height: auto;
-  width: 650px;
-  padding-bottom: 25px;
+  width: 500px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 5px;
   position: absolute;
   background-color: inherit;
   top: 50%;
@@ -343,7 +391,6 @@ option {
   transform: translate(-50%, -50%);
   border: 1px;
   border-radius: 2em;
-  box-shadow: 0px 11px 75px 12px rgba(0, 0, 0, 0.35);
 }
 
 #ar .modal-form {
@@ -364,8 +411,12 @@ option {
 }
 
 .modalInput {
-  margin: 10px;
   flex-direction: row-reverse;
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 250px;
 }
 
 .blurCard {
@@ -390,11 +441,9 @@ option {
 }
 
 .pinForm {
-  display: flex;
   flex-direction: row-reverse;
   width: 71%;
-  margin-bottom: 60px;
-  align-items: center;
+  margin-bottom: 30px;
 }
 
 .userIcon {
@@ -404,5 +453,5 @@ option {
 
 .arrowIcon {
   display: flex;
-  margin-left: -180px;
+  margin-left: -235px;
 }

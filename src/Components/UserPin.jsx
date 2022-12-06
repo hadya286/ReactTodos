@@ -44,17 +44,13 @@ function UserPin() {
             onChange={handleChange}
             dir={lang === "ar" ? "rtl" : "ltr"}
           />
-          <Link id="cancelLogin" to="/">
-            <FaTimes />
-          </Link>
-          <button
-            className="btn"
-            onClick={handleSubmit}
-            style={{height: "40px"}}
-          >
+          <button className="btn" onClick={handleSubmit}>
             {lang === "en" ? "Log in" : "تسجيل الدخول"}
           </button>
         </div>
+        <Link id="cancelLogin" to="/">
+          <FaTimes />
+        </Link>
       </div>
     </>
   )

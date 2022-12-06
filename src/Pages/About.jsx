@@ -7,16 +7,24 @@ import TodosContext from "../Context/todosContext"
 import ThemeSwitch from "../Components/ThemeSwitch"
 
 const About = () => {
-  const [newPin, setNewPin] = useState("")
-  const [confirmNewPin, setConfirmNewPin] = useState("")
+  const [state1, setState1] = useState("")
+  const [state2, setState2] = useState("")
+  const [isError, setIsError] = useState("")
   const {lang} = useContext(ThemeContext)
   const {searchName, searchPin, changePin} = useContext(TodosContext)
   const {id} = useParams()
 
+  // four digits
+  // ^[0-9]{4}$
+
   const checkValidation = (e) => {
-    setConfirmNewPin(e.target.value)
-    if (newPin !== confirmNewPin) {
-      alert("Confirm PIN should match your new PIN")
+    setState2(e.target.value)
+    console.log("state2", state2)
+    console.log("state1", state1)
+    if (state1 === state2) {
+      setIsError("PINs match")
+    } else {
+      setIsError("Confirm PIN should match New PIN")
     }
   }
 
@@ -40,88 +48,71 @@ const About = () => {
         className="pinForm"
         onSubmit={(e) => {
           e.preventDefault()
-          if (newPin !== "") {
-            changePin(id, newPin)
-            alert("Confirm New PIN")
+        }}
+      >
+        <input
+          className="todo"
+          type="password"
+          value={state1}
+          id="myInput1"
+          placeholder={lang === "ar" ? "كلمة مرور جديدة" : "New PIN.."}
+          onChange={(e) => setState1(e.target.value)}
+          dir={lang === "ar" ? "rtl" : "ltr"}
+        />
+      </form>
+
+      {/* //////////////////////////////////////////////////////////////// */}
+      <form
+        className="pinForm"
+        onSubmit={(e) => {
+          e.preventDefault()
+          if (state2 !== "" && state2 === state1) {
+            changePin(id, state2)
+            alert("PIN changed")
+            setState2("")
+            setState1("")
           }
         }}
       >
         <input
           className="todo"
           type="password"
-          value={newPin}
-          id="myInput"
-          placeholder={lang === "ar" ? "كلمة مرور جديدة" : "New PIN.."}
-          onChange={(e) => setNewPin(e.target.value)}
-          dir={lang === "ar" ? "rtl" : "ltr"}
-        />
-        <button
-          className="btn"
-          type="submit"
-          style={{
-            width: "30%",
-            marginLeft: "10px",
-            marginRight: "10px",
-            height: "40px",
-          }}
-        >
-          {lang === "ar" ? "تغيير كلمة المرور" : "Change PIN"}
-        </button>
-      </form>
-
-      {/* //////////////////////////////////////////////////////////////// */}
-      {/* Confirming new pin */}
-      <form
-        className="pinForm"
-        onSubmit={(e) => {
-          e.preventDefault()
-          if (confirmNewPin !== "" && confirmNewPin === newPin) {
-            changePin(id, confirmNewPin)
-            alert("PIN changed")
-            setConfirmNewPin("")
-            setNewPin("")
-          }
-        }}
-      >
-        <input
-          className="todon"
-          type="password"
-          value={confirmNewPin}
-          id="myInput"
+          value={state2}
+          id="myInput2"
           placeholder={
             lang === "ar" ? "تأكيد كلمة المرور" : "Confirm New PIN.."
           }
           onChange={(e) => checkValidation(e)}
           dir={lang === "ar" ? "rtl" : "ltr"}
         />
+      </form>
+      <div className="error">{isError}</div>
+      <div>
         <button
-          className="btn"
+          className="btn btn3"
           type="submit"
-          style={{
-            width: "30%",
-            marginLeft: "10px",
-            marginRight: "10px",
-            height: "40px",
+          onClick={() => {
+            changePin(id, state2)
+            alert("PIN changed")
           }}
         >
-          {lang === "ar" ? "تأكيد كلمة المرور" : "Confirm PIN"}
+          {lang === "ar" ? "تغيير كلمة المرور" : "Change PIN"}
         </button>
-      </form>
+      </div>
 
-      <button
-        className="btn"
-        type="submit"
-        onClick={() => {
-          changePin(id, "")
-          alert("PIN deleted")
-        }}
-        style={{
-          width: "30%",
-          marginTop: "-30px",
-        }}
-      >
-        {lang === "ar" ? "الغاء كلمة المرور" : "Delete PIN"}
-      </button>
+      <div>
+        <button
+          className="btn btn3"
+          type="submit"
+          onClick={() => {
+            changePin(id, "")
+            alert("PIN deleted")
+          }}
+        >
+          {lang === "ar" ? "الغاء كلمة المرور" : "Delete PIN"}
+        </button>
+      </div>
+
       <div style={{marginTop: "40px"}}>
         <ThemeSwitch />
       </div>
