@@ -14,19 +14,22 @@ const About = () => {
   const {searchName, searchPin, changePin} = useContext(TodosContext)
   const {id} = useParams()
 
-  // 4 digits
-  // ^[0-9]{4}$
-
-  // 4 digits non repeating numbers
-  // ^(\d)(?!\1{3})\d{3}$
-
   const checkValidation = () => {
-    if (state1 === state2) {
-      setIsError('Pin Changed')
+    // let regx = new RegExp('^(?!(.)\1+$)d{4}$')
+
+    let regx = /^(?!(.)\1+$)\d{4}$/
+
+    if (state1 === state2 && regx.test(state2)) {
+      setIsError('PIN Changed')
       return true
-    } else {
+    } else if (!regx.test(state2) && state2 !== '' && state1 === state2) {
+      setIsError('PIN should be 4 non-similar digits')
+      return false
+    } else if (state1 !== state2) {
       setIsError('Confirm PIN should match New PIN')
       return false
+    } else {
+      setIsError('')
     }
   }
 
