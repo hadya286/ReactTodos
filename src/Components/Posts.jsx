@@ -1,7 +1,7 @@
-import React, {useContext} from "react"
-import TodosContext from "../Context/todosContext"
-import ThemeContext from "../Context/themeContext"
-import {useParams} from "react-router-dom"
+import React, {useContext} from 'react'
+import TodosContext from '../Context/todosContext'
+import ThemeContext from '../Context/themeContext'
+import {useParams} from 'react-router-dom'
 
 // we imported-
 
@@ -17,13 +17,13 @@ const Posts = () => {
   return (
     <ul>
       {currentPosts.map((t) => (
-        <li className="singleTodo" key={t.id}>
-          <span className="todoText">{t.todo}</span>
-          <button className="btn2" onClick={() => handleEdit(t.id)}>
-            {lang === "ar" ? "تعديل" : "Edit"}
+        <li className='singleTodo' key={t.id}>
+          <span className='todoText'>{t.todo}</span>
+          <button className='btn2' onClick={() => handleEdit(t.id)}>
+            {lang === 'ar' ? 'تعديل' : 'Edit'}
           </button>
-          <button className="btn2" onClick={() => handleDelete(t.id, id)}>
-            {lang === "ar" ? "إزالة" : "Remove"}
+          <button className='btn2' onClick={() => handleDelete(t.id, id)}>
+            {lang === 'ar' ? 'إزالة' : 'Remove'}
           </button>
         </li>
       ))}

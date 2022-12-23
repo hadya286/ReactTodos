@@ -70,6 +70,11 @@ button.btn2 {
   width: 450px;
   align-items: center;
 }
+
+.singleTodo.isDragging {
+  transition: transform 0.2s ease-in-out;
+}
+
 /* /////////////////////////////////////////////////////////// */
 
 #light {
@@ -292,8 +297,8 @@ button.btn2 {
 }
 
 .navStyle {
-  position: "relative";
-  bottom: "0";
+  position: 'relative';
+  bottom: '0';
   padding-bottom: 40px;
   margin-right: 15px;
 }

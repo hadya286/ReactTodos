@@ -1,5 +1,5 @@
-import axios from "axios"
-import {createContext, useEffect, useState} from "react"
+import axios from 'axios'
+import {createContext, useEffect, useState} from 'react'
 
 const TodosContext = createContext()
 
@@ -11,7 +11,7 @@ export const TodosProvider = ({children}) => {
   // set todos for the user
   const [todos, setTodos] = useState([])
   const [loggedIn, setLoggedIn] = useState(false) // this is the state for the login page
-  const [todo, setTodo] = useState("") // this is the state for the input field
+  const [todo, setTodo] = useState('') // this is the state for the input field
   const [editId, setEditId] = useState(0) // this is the state for the edit button
 
   const [currentPage, setCurrentPage] = useState(1) // this is the state for which page we are on
@@ -28,7 +28,7 @@ export const TodosProvider = ({children}) => {
   // function to fetch the users from json server at localhost:3001/users using axios
   const fetchUsers = async () => {
     setLoading(true)
-    const response = await axios.get("http://localhost:3001/users")
+    const response = await axios.get('http://localhost:3001/users')
     setUsers(response.data)
     setLoading(false)
     console.log(users)
@@ -76,7 +76,7 @@ export const TodosProvider = ({children}) => {
       setLoggedIn(true)
       searchUser(id) // retrieve user's todo list
     } else {
-      alert("Incorrect PIN, please try again")
+      alert('Incorrect PIN, please try again')
     }
   }
 
@@ -100,18 +100,18 @@ export const TodosProvider = ({children}) => {
       })
       // resesting the input field and the editId
       setEditId(0)
-      setTodo("")
+      setTodo('')
       return
     }
 
     // prevents from adding empty 'todo's, and adds the 'todo' to the list
-    if (todo !== "") {
+    if (todo !== '') {
       // we are adding the 'todo' to the list by putting it in an object and spreading all the old todos using '...todos'
       setTodos([{id: `${todo}-${Date.now()}`, todo}, ...todos])
       await axios.patch(`http://localhost:3001/users/${id}`, {
         todos: [{id: `${todo}-${Date.now()}`, todo}, ...todos],
       })
-      setTodo("") // resetting the input field
+      setTodo('') // resetting the input field
       //date.now(): to make unique id,
       // console.log(`${todo}-${Date.now()}`)
       // item1-1669192232407

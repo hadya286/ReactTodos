@@ -9,27 +9,38 @@ const About = () => {
   const [state1, setState1] = useState('')
   const [state2, setState2] = useState('')
   const [isError, setIsError] = useState('')
-  const [isValid, setIsValid] = useState(false)
+  // const [isValid, setIsValid] = useState(false)
   const {lang} = useContext(ThemeContext)
   const {searchName, searchPin, changePin} = useContext(TodosContext)
   const {id} = useParams()
 
   const checkValidation = () => {
-    // let regx = new RegExp('^(?!(.)\1+$)d{4}$')
-
     let regx = /^(?!(.)\1+$)\d{4}$/
+    const lang1 = lang === 'en' ? 'PIN changed' : 'تم تغيير رقم التعريف الشخصي'
+    const lang2 =
+      lang === 'en'
+        ? 'PIN should be 4 non-similar digits'
+        : 'يجب أن يتكون رقم التعريف الشخصي من ٤ أرقام غير متشابهة'
+    const lang3 =
+      lang === 'en'
+        ? 'Confirm PIN should match New PIN'
+        : 'يجب أن يتطابق تأكيد رقم التعريف الشخصي مع رقم التعريف الشخصي الجديد'
+    const lang4 =
+      lang === 'en'
+        ? 'You need to enter a new PIN'
+        : 'عليك إدخال رقم تعريف شخصي جديد'
 
     if (state1 === state2 && regx.test(state2)) {
-      setIsError('PIN Changed')
+      setIsError(lang1)
       return true
     } else if (!regx.test(state2) && state2 !== '' && state1 === state2) {
-      setIsError('PIN should be 4 non-similar digits')
+      setIsError(lang2)
       return false
     } else if (state1 !== state2) {
-      setIsError('Confirm PIN should match New PIN')
+      setIsError(lang3)
       return false
     } else {
-      setIsError('')
+      setIsError(lang4)
     }
   }
 

@@ -1,6 +1,6 @@
-import React, {useContext} from "react"
-import ThemeContext from "../Context/themeContext"
-import TodosContext from "../Context/todosContext"
+import React, {useContext} from 'react'
+import ThemeContext from '../Context/themeContext'
+import TodosContext from '../Context/todosContext'
 
 const Pagination = () => {
   const pageNumbers = []
@@ -13,10 +13,10 @@ const Pagination = () => {
   }
 
   return (
-    <nav className="navStyle">
-      <ul className="navRow" id={lang}>
+    <nav className='navStyle'>
+      <ul className='navRow' id={lang}>
         <button
-          className="btn pn"
+          className='btn pn'
           onClick={() => {
             const prevPage = currentPage - 1
             if (prevPage > 0) {
@@ -24,31 +24,31 @@ const Pagination = () => {
             }
           }}
         >
-          {lang === "ar" ? "السابق" : "Previous"}
+          {lang === 'ar' ? 'السابق' : 'Previous'}
         </button>
         {pageNumbers.map((number) => (
           <li
             key={number}
             style={{
-              display: "inline",
-              fontWeight: number === currentPage ? "bold" : "",
+              display: 'inline',
+              fontWeight: number === currentPage ? 'bold' : '',
             }}
           >
             <span
-              className="aStyle"
+              className='aStyle'
               onClick={(e) => {
                 e.preventDefault()
                 paginate(number)
               }}
             >
               {/* print out arabic numbers */}
-              {lang === "ar" ? number.toLocaleString("ar-EG") : number}
+              {lang === 'ar' ? number.toLocaleString('ar-EG') : number}
               &nbsp; {/* this is a space */}
             </span>
           </li>
         ))}
         <button
-          className="btn pn"
+          className='btn pn'
           onClick={() => {
             const nextPage = currentPage + 1
             if (nextPage <= pageNumbers.length) {
@@ -56,7 +56,7 @@ const Pagination = () => {
             }
           }}
         >
-          {lang === "ar" ? "التالي" : "Next"}
+          {lang === 'ar' ? 'التالي' : 'Next'}
         </button>
       </ul>
     </nav>

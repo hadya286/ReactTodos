@@ -1,16 +1,16 @@
-import React from "react"
-import {FaUser} from "react-icons/fa"
-import {useContext, useEffect} from "react"
-import {useParams, Link} from "react-router-dom"
-import ThemeContext from "../Context/themeContext"
-import TodosContext from "../Context/todosContext"
+import React from 'react'
+import {FaUser} from 'react-icons/fa'
+import {useContext, useEffect} from 'react'
+import {useParams, Link} from 'react-router-dom'
+import ThemeContext from '../Context/themeContext'
+import TodosContext from '../Context/todosContext'
 
-import Form from "./Form"
-import Pagination from "./Pagination"
-import Posts from "./Posts"
-import ThemeSwitch from "./ThemeSwitch"
-import UserPin from "./UserPin"
-import UserTab from "./UserTab"
+import Form from './Form'
+import Pagination from './Pagination'
+import Posts from './Posts'
+import ThemeSwitch from './ThemeSwitch'
+import UserPin from './UserPin'
+import UserTab from './UserTab'
 
 export const Card = () => {
   const {lang, fetchTheme} = useContext(ThemeContext)
@@ -38,17 +38,17 @@ export const Card = () => {
     <>
       <UserTab />
 
-      <div className="card" id={lang}>
+      <div className='card' id={lang}>
         {/* if not loggedin => <UserPin> component is displayed */}
         {!loggedIn && <UserPin id={id} />}
 
         {/* if not loggedIn => use the blurCard classname */}
-        <div className={!loggedIn && "blurCard"}>
-          <h1 className="card-header">
+        <div className={!loggedIn && 'blurCard'}>
+          <h1 className='card-header'>
             <Link to={`/users/about/${id}`}>
-              <FaUser className="userIcon" />
+              <FaUser className='userIcon' />
             </Link>
-            {lang === "en"
+            {lang === 'en'
               ? `${searchName(id)}'s To Do List`
               : `${searchName(id)} قائمة مهام`}
           </h1>
