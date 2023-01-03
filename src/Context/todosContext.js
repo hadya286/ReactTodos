@@ -19,7 +19,19 @@ export const TodosProvider = ({children}) => {
 
   const indexOfLastPost = currentPage * postsPerPage // variable to get to the last todo
   const indexOfFirstPost = indexOfLastPost - postsPerPage // variable to get to the first todo in the page
-  const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
+  // const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
+
+  const position = todos.length
+  console.log('position: ', position)
+
+  console.log('first: ', indexOfFirstPost)
+  console.log('last: ', indexOfLastPost)
+
+  const [currentPosts, setCurrentPosts] = useState([])
+
+  useEffect(() => {
+    setCurrentPosts(todos.slice(indexOfFirstPost, indexOfLastPost))
+  }, [todos, indexOfFirstPost, indexOfLastPost])
   useEffect(() => {
     fetchUsers()
     // eslint-disable-next-line
@@ -31,7 +43,7 @@ export const TodosProvider = ({children}) => {
     const response = await axios.get('http://localhost:3001/users')
     setUsers(response.data)
     setLoading(false)
-    console.log(users)
+    console.log('users: ', users)
   }
 
   // fucntion to search for the userName using his id
@@ -168,10 +180,12 @@ export const TodosProvider = ({children}) => {
         setCurrentPage,
         postsPerPage,
         currentPosts,
+        setCurrentPosts,
         users,
         loggedIn,
         setLoggedIn,
         loading,
+
         // functions
         handleSubmit,
         handleDelete,
