@@ -21,11 +21,11 @@ export const TodosProvider = ({children}) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage // variable to get to the first todo in the page
   // const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
 
-  const position = todos.length
-  console.log('position: ', position)
+  // const position = todos.length
+  // console.log('position: ', position)
 
-  console.log('first: ', indexOfFirstPost)
-  console.log('last: ', indexOfLastPost)
+  // console.log('first: ', indexOfFirstPost)
+  // console.log('last: ', indexOfLastPost)
 
   const [currentPosts, setCurrentPosts] = useState([])
 
@@ -43,7 +43,7 @@ export const TodosProvider = ({children}) => {
     const response = await axios.get('http://localhost:3001/users')
     setUsers(response.data)
     setLoading(false)
-    console.log('users: ', users)
+    // console.log('users: ', users)
   }
 
   // fucntion to search for the userName using his id

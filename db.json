@@ -4,70 +4,57 @@
       "id": 1,
       "name": "John",
       "pin": "",
-      "preference": [
-        "dark",
-        "en"
-      ],
+      "preference": ["dark", "en"],
       "todos": [
         {
           "id": 1,
           "todo": "Todo 1",
-          "completed": true,
-          "position": 1
+          "index": 1
         },
         {
           "id": 2,
           "todo": "Todo 2",
-          "completed": true,
-          "position": 2
+          "index": 2
         },
         {
           "id": 3,
           "todo": "Todo 3",
-          "completed": true,
-          "position": 3
+          "index": 3
         },
         {
           "id": 4,
           "todo": "Todo 4",
-          "completed": false,
-          "position": 4
+          "index": 4
         },
         {
           "id": 5,
           "todo": "Todo 5",
-          "completed": true,
-          "position": 5
+          "index": 5
         },
         {
           "id": 6,
           "todo": "Todo 6",
-          "completed": false,
-          "position": 6
+          "index": 6
         },
         {
           "id": 7,
           "todo": "Todo 7",
-          "completed": true,
-          "position": 7
+          "index": 7
         },
         {
           "id": 8,
           "todo": "Todo 8",
-          "completed": false,
-          "position": 8
+          "index": 8
         },
         {
           "id": 9,
           "todo": "Todo 9",
-          "completed": true,
-          "position": 9
+          "index": 9
         },
         {
           "id": 10,
           "todo": "Todo 10",
-          "completed": false,
-          "position": 10
+          "index": 10
         }
       ]
     },
@@ -75,60 +62,57 @@
       "id": 2,
       "name": "Jenny",
       "pin": "1212",
-      "preference": [
-        "light",
-        "en"
-      ],
+      "preference": ["light", "en"],
       "todos": [
         {
           "id": 1,
           "todo": "Todo 1",
-          "position": 1
+          "index": 1
         },
         {
           "id": 2,
           "todo": "Todo 2",
-          "position": 2
+          "index": 2
         },
         {
           "id": 3,
           "todo": "Todo 3",
-          "position": 3
+          "index": 3
         },
         {
           "id": 4,
           "todo": "Todo 4",
-          "position": 4
+          "index": 4
         },
         {
           "id": 5,
           "todo": "Todo 5",
-          "position": 5
+          "index": 5
         },
         {
           "id": 6,
           "todo": "Todo 6",
-          "position": 6
+          "index": 6
         },
         {
           "id": 7,
           "todo": "Todo 7",
-          "position": 7
+          "index": 7
         },
         {
           "id": 8,
           "todo": "Todo 8",
-          "position": 8
+          "index": 8
         },
         {
           "id": 9,
           "todo": "Todo 9",
-          "position": 9
+          "index": 9
         },
         {
           "id": 10,
           "todo": "Todo 10",
-          "position": 10
+          "index": 10
         }
       ]
     },
@@ -136,70 +120,67 @@
       "id": 3,
       "name": "Bob",
       "pin": "1212",
-      "preference": [
-        "light",
-        "ar"
-      ],
+      "preference": ["light", "ar"],
       "todos": [
         {
           "id": 1,
           "todo": "Todo 1",
           "completed": true,
-          "position": 1
+          "index": 1
         },
         {
           "id": 2,
           "todo": "Todo 2",
           "completed": false,
-          "position": 2
+          "index": 2
         },
         {
           "id": 3,
           "todo": "Todo 3",
           "completed": true,
-          "position": 3
+          "index": 3
         },
         {
           "id": 4,
           "todo": "Todo 4",
           "completed": false,
-          "position": 4
+          "index": 4
         },
         {
           "id": 5,
           "todo": "Todo 5",
           "completed": true,
-          "position": 5
+          "index": 5
         },
         {
           "id": 6,
           "todo": "Todo 6",
           "completed": false,
-          "position": 6
+          "index": 6
         },
         {
           "id": 7,
           "todo": "Todo 7",
           "completed": true,
-          "position": 7
+          "index": 7
         },
         {
           "id": 8,
           "todo": "Todo 8",
           "completed": false,
-          "position": 8
+          "index": 8
         },
         {
           "id": 9,
           "todo": "Todo 9",
           "completed": true,
-          "position": 9
+          "index": 9
         },
         {
           "id": 10,
           "todo": "Todo 10",
           "completed": false,
-          "position": 10
+          "index": 10
         }
       ]
     }

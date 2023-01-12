@@ -8,6 +8,8 @@ import TodosContext from '../Context/todosContext'
 import Form from './Form'
 import Pagination from './Pagination'
 import Posts from './Posts'
+import DraggableList from './Posts.jsx'
+
 import ThemeSwitch from './ThemeSwitch'
 import UserPin from './UserPin'
 import UserTab from './UserTab'
@@ -56,7 +58,9 @@ export const Card = () => {
           <Form />
 
           {/* The todos */}
-          <Posts />
+          {/* <Posts /> */}
+
+          <DraggableList items={['item1', 'item2', 'item3']} />
 
           {/* The pagination numbering at the bottom */}
           <Pagination />

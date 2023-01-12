@@ -50,11 +50,11 @@ button.btn2 {
   align-items: center;
   font-size: 20px;
   margin: 50px;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 30px;
   width: 700px;
   float: left;
   border-radius: 2em;
-  /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.35); */
   box-shadow: 0px 11px 35px 2px #545d6dd8;
 
   /* //if not loggedin is true => blur
@@ -70,7 +70,7 @@ button.btn2 {
 } */
 
 .singleTodo {
-  border-radius: 50px;
+  /* border-radius: 50px;
   margin: 10px 0;
   padding: 12px 20px;
   display: flex;
@@ -78,12 +78,27 @@ button.btn2 {
   align-items: center;
   cursor: grab;
   position: relative;
-  /* user-select: none; */
+  user-select: none; */
+
+  position: absolute;
+  width: 450px;
+  margin: 10px 0;
+  /* height: 90px; */
+  transform-origin: 50% 50% 0px;
+  border-radius: 5px;
+  color: white;
+  /* line-height: 90px; */
+  /* padding-left: 32px; */
+  padding: 20px 20px;
+  font-size: 14.5px;
+  background: rgba(240, 128, 128, 0.637);
+  letter-spacing: 3px;
+  touch-action: none;
 }
 
-.singleTodo:active {
-  cursor: grabbing;
-}
+/* .singleTodo:active { */
+/* cursor: grabbing; */
+/* } */
 
 /* .box {
   cursor: move;
@@ -123,8 +138,12 @@ button.btn2 {
 
 #light input {
   background-color: rgba(255, 255, 255, 0.808);
-  /* color: rgb(71, 71, 71);*/
   color: rgb(71, 71, 71);
+  box-shadow: 2px 3px 10px 0px #6c7a93a6;
+}
+
+#light button {
+  box-shadow: 2px 3px 10px 0px #6c7a93a6;
 }
 
 #light button:hover {
@@ -141,6 +160,7 @@ button.btn2 {
 
 #light .btn2 {
   background-color: rgba(230, 226, 219, 0.808);
+  box-shadow: 2px 3px 10px 0px #939caba6;
 }
 
 #light .btn2:hover {
@@ -217,6 +237,11 @@ button.btn2 {
 #dark input {
   background-color: #3c4049a6;
   color: rgb(168, 168, 168);
+  box-shadow: 2px 3px 10px 0px #191c21a6;
+}
+
+#dark button {
+  box-shadow: 2px 3px 10px 0px #191c21a6;
 }
 
 #dark button:hover {
@@ -235,6 +260,8 @@ button.btn2 {
 #dark .btn2 {
   background-color: #282c34a6;
   color: rgba(168, 168, 168, 0.986);
+  box-shadow: 2px 3px 10px 0px #373e48a6;
+  /* box-shadow: none; */
 }
 
 #dark .btn2:hover {
@@ -480,3 +507,61 @@ option {
   display: flex;
   margin-left: -235px;
 }
+
+/* ////////////////////////////////////////////////////////// */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
+  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
+      39 39,
+    auto;
+}
+
+.content {
+  position: relative;
+  width: 320px;
+  height: 240px;
+}
+
+/* .content > div { */
+/* position: absolute;
+  width: 320px;
+  height: 90px;
+  transform-origin: 50% 50% 0px;
+  border-radius: 5px;
+  color: white;
+  line-height: 90px;
+  padding-left: 32px;
+  font-size: 14.5px;
+  background: rgba(240, 128, 128, 0.637);
+  letter-spacing: 3px;
+  touch-action: none;
+} */
+
+/* .content > div:nth-child(1) {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+.content > div:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.content > div:nth-child(3) {
+  background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+}
+.content > div:nth-child(4) {
+  background: linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%);
+} */
