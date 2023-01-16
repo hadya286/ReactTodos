@@ -60,7 +60,8 @@ export const Card = () => {
           {/* The todos */}
           {/* <Posts /> */}
 
-          <DraggableList items={['item1', 'item2', 'item3']} />
+          {/* <DraggableList items={['item1', 'item2', 'item3']} /> */}
+          <DraggableList />
 
           {/* The pagination numbering at the bottom */}
           <Pagination />

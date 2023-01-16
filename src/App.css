@@ -13,6 +13,7 @@ button {
   border-radius: 40px;
   margin: 0 5px;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 
 button.btn {
@@ -21,6 +22,10 @@ button.btn {
   padding-top: 19px;
   padding-bottom: 19px;
   font-size: 14px;
+}
+
+.inputBtn {
+  margin-left: -40px;
 }
 
 .btn3 {
@@ -61,44 +66,9 @@ button.btn2 {
   //else "" */
 }
 
-/* .bound {
-  position: relative;
-  height: 500px;
-  background-color: white;
-  overflow: hidden;
-  margin-right: -70px;
-} */
-
-.singleTodo {
-  /* border-radius: 50px;
-  margin: 10px 0;
-  padding: 12px 20px;
-  display: flex;
-  width: 450px;
-  align-items: center;
-  cursor: grab;
-  position: relative;
-  user-select: none; */
-
-  position: absolute;
-  width: 450px;
-  margin: 10px 0;
-  /* height: 90px; */
-  transform-origin: 50% 50% 0px;
-  border-radius: 5px;
-  color: white;
-  /* line-height: 90px; */
-  /* padding-left: 32px; */
-  padding: 20px 20px;
-  font-size: 14.5px;
-  background: rgba(240, 128, 128, 0.637);
-  letter-spacing: 3px;
-  touch-action: none;
+.todoText {
+  padding-right: 60px;
 }
-
-/* .singleTodo:active { */
-/* cursor: grabbing; */
-/* } */
 
 /* .box {
   cursor: move;
@@ -361,19 +331,20 @@ button.btn2 {
 input {
   border: none;
   border-radius: 40px;
-  width: 65%;
-  font-size: 14px;
-  height: 30px;
+  width: 55%;
+  font-size: 15.75px;
+  height: 35px;
   padding: 12px;
   padding-left: 40px;
-  padding-right: 40px;
+  padding-right: 20px;
+  letter-spacing: 1px;
 }
 
 .todoform {
   display: flex;
   justify-content: space-around;
   width: 450px;
-  margin-left: 50px;
+  margin-left: 28px;
 }
 
 .titleInput {
@@ -511,47 +482,68 @@ option {
 /* ////////////////////////////////////////////////////////// */
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
   user-select: none;
-  font-family: 'Raleway', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f0f0f0;
-  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
+  letter-spacing: 1px;
+  /* margin: 0;
+  padding: 0; */
+  /* height: 100%;
+  width: 100%; */
+  /* overflow: hidden; */
+  /* user-select: none; */
+  /* font-family: 'Raleway', sans-serif; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background: #f0f0f0; */
+  /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
       39 39,
-    auto;
+    auto; */
 }
 
 .content {
+  /* overflow: hidden; */
   position: relative;
-  width: 320px;
-  height: 240px;
+}
+
+.singleTodo {
+  box-sizing: border-box;
+  border-radius: 50px;
+  cursor: grab;
+  user-select: none;
+
+  position: absolute;
+  width: 420px;
+  margin: 0px 0;
+  transform-origin: 50% 50% 0px;
+  padding: 18px 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  touch-action: none;
+}
+
+.singleTodo:active {
+  cursor: grabbing;
 }
 
 /* .content > div { */
-/* position: absolute;
-  width: 320px;
-  height: 90px;
-  transform-origin: 50% 50% 0px;
-  border-radius: 5px;
-  color: white;
-  line-height: 90px;
-  padding-left: 32px;
-  font-size: 14.5px;
-  background: rgba(240, 128, 128, 0.637);
-  letter-spacing: 3px;
-  touch-action: none;
-} */
+/* position: absolute; */
+/* width: 320px; */
+/* height: 90px; */
+/* transform-origin: 50% 50% 0px; */
+/* border-radius: 5px; */
+/* color: white; */
+/* line-height: 90px; */
+/* padding-left: 32px; */
+/* font-size: 14.5px; */
+/* background: rgba(240, 128, 128, 0.637); */
+/* letter-spacing: 3px; */
+/* touch-action: none; */
+/* } */
 
 /* .content > div:nth-child(1) {
   background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);

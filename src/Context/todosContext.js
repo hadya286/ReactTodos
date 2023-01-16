@@ -32,6 +32,7 @@ export const TodosProvider = ({children}) => {
   useEffect(() => {
     setCurrentPosts(todos.slice(indexOfFirstPost, indexOfLastPost))
   }, [todos, indexOfFirstPost, indexOfLastPost])
+
   useEffect(() => {
     fetchUsers()
     // eslint-disable-next-line

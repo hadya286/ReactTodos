@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useRef, useEffect} from 'react'
 import clamp from 'lodash-es/clamp'
 import swap from 'lodash-move'
 import {useDrag} from 'react-use-gesture'
@@ -27,28 +27,41 @@ const fn = (order, active, originalIndex, curIndex, y) => (index) =>
         immediate: false,
       }
 
-function DraggableList({items}) {
+function DraggableList() {
   const {lang} = useContext(ThemeContext)
   const {handleDelete, handleEdit, currentPosts} = useContext(TodosContext)
   const {id} = useParams()
 
-  const order = useRef(items.map((_, index) => index)) // Store indicies as a local ref, this represents the item order
-  const [springs, setSprings] = useSprings(items.length, fn(order.current)) // Create springs, each corresponds to an item, controlling its transform, scale, etc.
+  const order = useRef(currentPosts.map((_, index) => index)) // Store indicies as a local ref, this represents the item order
+  const [springs, setSprings] = useSprings(
+    currentPosts.length,
+    fn(order.current)
+  ) // Create springs, each corresponds to an item, controlling its transform, scale, etc.
+
+  useEffect(() => {
+    order.current = currentPosts.map((_, index) => index)
+    setSprings(fn(order.current))
+  }, [currentPosts, setSprings])
 
   const bind = useDrag(({args: [originalIndex], active, movement: [, y]}) => {
     const curIndex = order.current.indexOf(originalIndex)
     const curRow = clamp(
       Math.round((curIndex * 100 + y) / 100),
       0,
-      items.length - 1
+      currentPosts.length - 1
     )
     const newOrder = swap(order.current, curIndex, curRow)
     setSprings(fn(newOrder, active, originalIndex, curIndex, y)) // Feed springs new style data, they'll animate the view without causing a single render
-    if (!active) order.current = newOrder
+    if (!active) {
+      order.current = newOrder
+    }
   })
 
   return (
-    <ul className='content' style={{height: items.length * 100}}>
+    <ul
+      className='content'
+      style={{height: currentPosts.length * 100, position: 'relative'}}
+    >
       {springs.map(({zIndex, shadow, y, scale}, i) => (
         <animated.div
           className='singleTodo'
@@ -62,16 +75,16 @@ function DraggableList({items}) {
             y,
             scale,
           }}
-          children={items[i]}
+          children={currentPosts[i]}
         >
           <span className='todoText'>
-            {i.todo} (id: {i.id})
+            {currentPosts[i].todo} (id: {currentPosts[i].id}){' '}
           </span>
 
           <button
             className='btn2'
             onClick={() => {
-              handleEdit(i.id)
+              handleEdit(currentPosts[i].id)
             }}
           >
             {lang === 'ar' ? 'تعديل' : 'Edit'}
@@ -79,7 +92,7 @@ function DraggableList({items}) {
           <button
             className='btn2'
             onClick={() => {
-              handleDelete(i.id, id)
+              handleDelete(currentPosts[i].id, id)
             }}
           >
             {lang === 'ar' ? 'إزالة' : 'Remove'}

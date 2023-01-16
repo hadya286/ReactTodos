@@ -8,53 +8,43 @@
       "todos": [
         {
           "id": 1,
-          "todo": "Todo 1",
-          "index": 1
+          "todo": "Todo 1"
         },
         {
           "id": 2,
-          "todo": "Todo 2",
-          "index": 2
+          "todo": "Todo 2"
         },
         {
           "id": 3,
-          "todo": "Todo 3",
-          "index": 3
+          "todo": "Todo 3"
         },
         {
           "id": 4,
-          "todo": "Todo 4",
-          "index": 4
+          "todo": "Todo 4"
         },
         {
           "id": 5,
-          "todo": "Todo 5",
-          "index": 5
+          "todo": "Todo 5"
         },
         {
           "id": 6,
-          "todo": "Todo 6",
-          "index": 6
+          "todo": "Todo 6"
         },
         {
           "id": 7,
-          "todo": "Todo 7",
-          "index": 7
+          "todo": "Todo 7"
         },
         {
           "id": 8,
-          "todo": "Todo 8",
-          "index": 8
+          "todo": "Todo 8"
         },
         {
           "id": 9,
-          "todo": "Todo 9",
-          "index": 9
+          "todo": "Todo 9"
         },
         {
           "id": 10,
-          "todo": "Todo 10",
-          "index": 10
+          "todo": "Todo 10"
         }
       ]
     },
